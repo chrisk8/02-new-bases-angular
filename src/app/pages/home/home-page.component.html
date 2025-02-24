@@ -1,0 +1,104 @@
+<div class="container">
+    <h1>Bases de Angular</h1>
+    <hr>
+    <p>
+        En este primer proyecto se conocen los fundamentos basicos de Angular como Framework de desarrollo web. <br>
+        Uso de propiedades como <small> señales </small> para poder actualizar una propiedad en especifico. <br>
+        Rutas y Eventos como (click) para accionar un boton. <br>
+        Actualizacion en el DOM. <br>
+        Metodos para invocar a los eventos <br>
+
+    </p>
+    <div class="d-flex flex-row justify-content-between">
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Propiedades</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Uso de propiedades del component.ts</h6>
+                    <p class="card-text text-justify">
+                        Las propiedades del componente se encuentran en el archivo component.ts y se pueden acceder a
+                        ellas
+                        en el HTML con el uso de las llaves dobles. <br>
+                        <strong class="text-success">  {{ '{{ propertyName }}' }} </strong>
+                    </p>
+                    <p class="card-text text-justify">
+                        En Angular, las propiedades son declaradas como señales para que apunten a un valor especifico
+                        <strong class="text-success"> public property = singal( value ) </strong>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Rutas</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Manejo de rutas en la aplicacion</h6>
+                    <p class="card-text text-justify">
+                        Las rutas de la aplicacion de definen en el archivo app.routes.ts y es una clase
+                        que tiene un arreglo de objetos con las propiedades path y component
+                    </p>
+                    <p class="card-text text-justify">
+                        La propiedad path representa la ruta al componente que se quiere visualizar
+                        mientras que la porpiedad component renderiz el componente para visualizarlo. <br>
+                        Si no se importa el componente no se mostrara
+                    </p>
+                    <strong class="text-success">
+                        {{ 'routes=[{ path: /somePage, component: SomeComponent }]' }}
+                    </strong>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Eventos</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Uso de evoentos en las etiquetas HTML</h6>
+                    <p class="card-text text-justify">
+                        Los eventos en Angular sirven para dar accion a un elemento html a traves de una funcion
+                        definida en el component.ts <br>
+                        Son comunmente usados en botones y se declaran con un (event) = "functionName()" en la etiquita
+                        HTML que
+                        va a realizar la accion.
+                    </p>
+                    <strong class="text-success"> (click) = "functionName" </strong>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Metodos</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Uso de metodos</h6>
+                    <p class="card-text text-justify">
+                        Los metodos son funciones que se pueden inocar en elementos HTML para que realicen
+                        una accion en especifico. 
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="col">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Document Object Model (DOM)</h5>
+                    <h6 class="card-subtitle mb-2 text-body-secondary">Actualizacion de valores en el DOM</h6>
+                    <p class="card-text text-justify">
+                        El uso de las propiedades como SEÑALES en Angular permite mostrar y cambiar el valor de 
+                        una propiedad especifica 
+                    </p>
+                    <p>
+                        Para mostrar el valor de una señal solo basta con invocar la propiedad  den las llaves. <br>
+                        Las señales son funciones por lo tanto se invocan como una funcion sin argumentos.
+                    </p>
+                    <p>
+                        Para actualizar el valor de una señal o propiedad, se utilizan 2 metodos. <br>
+                    </p>
+                    <ul>
+                        <li><strong class="text-warning"> .set(newValue) </strong> - Este se usa para establecer un valor e igno caulquier otro que ya tenga </li>
+                        <li> <strong class="text-warning"> .update( function ) </strong> - si una señal depende del estado en el que se encuentre, se usa el update  </li>
+                    </ul>
+                    <strong class="text-success"> (click) = "functionName" </strong>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

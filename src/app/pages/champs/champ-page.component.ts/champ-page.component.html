@@ -1,0 +1,35 @@
+<div class="container">
+
+    <h1>Champ page Component</h1>
+    <hr>
+    <p>
+        Este componente muestra la informacion de un campeon de Arcane utilizando SEÑALES de angular
+        para mostrar y actualizar los valores de las propiedades del campeon.
+    </p>
+    <hr>
+    <h1>Champ: {{ name() }}</h1>
+
+    <dl>
+        <td>Nombre:</td>
+        <dd>{{ name() }}</dd>
+
+        <td>Skin:</td>
+        <dd>{{ skin() }}</dd>
+
+        <td>Método:</td>
+        <dd>{{ getHeroDescription() }}</dd>
+
+        <td>Capitalizado:</td>
+        <!-- ! Intentar  -->
+        <dd> {{ name().toUpperCase() }} </dd> 
+        <dd> Usando el pipe | uppercase: {{ name() | uppercase }} </dd> 
+    </dl>
+
+    <button (click)="changeHero()" class="btn btn-primary mx-2">
+        Cambiar nombre
+    </button>
+
+    <button (click)="chageSkin()" class="btn btn-primary">Cambiar skin</button>
+
+    <button (click)="resetForm()" class="btn btn-primary mx-2">Reset</button>
+</div>

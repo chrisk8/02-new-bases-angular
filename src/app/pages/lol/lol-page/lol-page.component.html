@@ -1,0 +1,73 @@
+<h1> League of Legends Arcane Page</h1>
+<hr>
+<section class="row">
+    <div class="col-6">
+        <h3>Agregar: {{ name() }} - {{ healthPoints() }} </h3>
+        <!-- Para acceder a los valores de las propiedades y asignarlas como propiedad a un elemento html como [value]="signalName()"
+        En este caso los inputs reciben las siguientes propiedades
+            [value] = "name()" - le asigna el valor de la propiedad name al atributo value de la etiqueta html 
+            (change)="functionName" - Evento change del input type que dispara un evento cuando ya no se esta escribiendo en la caja de texto
+                          se accede al atributo name del input con la referencia local a linput #inName para actualizar su valor
+                          al que se coloque en la caja de texto. En este caso, al poner un nombre en la caja y seleccionar otro elemento
+                          se actualiza el valor de la propiedad name()
+            (input)="functionName()" - Para actualizar el valor en el momento en el que se esta escribiendo-->
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Name" 
+        #inName  
+        [value]="name()" 
+        (change)="name.set( inName.value )" 
+        (input)="name.set(inName.value)"
+        >
+
+        <input 
+        type="number" 
+        class="form-control mt-2" 
+        placeholder="Health Points" 
+        #inHealth 
+        [value]="healthPoints()" 
+        (change)="healthPoints.set( +inHealth.value )" 
+        (input)="healthPoints.set(+inHealth.value)"
+        >
+        
+        <button (click)="addChamp()" class="mt-3 btn btn-primary">Agregar </button>
+    </div>
+    <div class="col-6">
+        <h3>Listado: </h3>
+        <ul class="list-group">
+            <!-- Se puede usar @for para iterar un arreglo u objeto que este declarado como señal en el 
+            archivo component.ts.
+            @for ofrece diferentes valores para acceder a cirtos elementos de lo que se este iterando
+            el index del arreglo, primer y ultimo elemento, etc
+                $index - Posicion index del elemento actual
+                $first - Boolean que determina si es el primer elemento de la lista
+                $last - Para el ultimo elemento 
+            Aqui se itera cada item o elemento del arreglo characters y lo renderiza en un li
+            Solo se puede acceder a la propiedad item dentro del scope del @for
+            
+            Se pueden agregar clases condicionalmente a los elementos HTLM colocandoles el atributo
+            [class.name-class] = "condition"
+            En este caso se coloca la clase text-success al primer elemento y text-danger al ultimo elemento
+            Se puede usar @if{}@else{} para mostrar u ocultar elementos HTML segun la condicion
+            En este caso no se muestran los personajes con healthPints < 100-->
+            @for (
+            item of characters(); 
+            track item.id; 
+            let i = $index;              
+            let first = $first;
+            let laast = $last; 
+            ) {
+                @if ( item.heathPoints > 100 ) {
+                    <li class="list-group-item" [class.list-group-item-success] = "first" [class.list-group-item-warning]="laast" >
+                        <small class="text-primary"> {{ i + 1 }} - </small>
+                        <span> Name: </span> <strong>{{ item.name }}</strong>
+                        <span> - HeatlhPoints:  </span> <strong class="text-success"> {{ item.heathPoints }} </strong>                    
+                    </li>
+                }@else {
+                    <small>Este personaje {{ item.name }} tiene menos de 100 puntos de vida {{ item.heathPoints }} <strong>NO SE MUESTRA</strong></small>
+                }
+            }
+        </ul>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<style>
+    nav {
+        display: flex;
+        justify-content: space-around;
+        background-color: black;
+        color: aliceblue;
+        padding: 10px;
+    }
+
+    nav a {
+        color: aliceblue;
+        text-decoration: none;
+    }
+
+    nav a.active {
+        color: rgb(129, 84, 152);
+    }
+</style>
+
+
+<nav>
+    <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a>
+    <a routerLink="/counter" routerLinkActive="active">Counter</a>
+    <a routerLink="/champ" routerLinkActive="active">Champ</a>
+    <a routerLink="/arcane" routerLinkActive="active">Arcane</a>
+</nav>
