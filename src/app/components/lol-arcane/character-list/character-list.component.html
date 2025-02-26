@@ -1,0 +1,37 @@
+<!-- Se separa la lista del componente padre como un componente independiente -->
+<h3>Listado:  {{ characterList() }} </h3>
+<ul class="list-group">
+    <!-- Se puede usar @for para iterar un arreglo u objeto que este declarado como señal en el 
+    archivo component.ts.
+    @for ofrece diferentes valores para acceder a cirtos elementos de lo que se este iterando
+    el index del arreglo, primer y ultimo elemento, etc
+        $index - Posicion index del elemento actual
+        $first - Boolean que determina si es el primer elemento de la lista
+        $last - Para el ultimo elemento 
+    Aqui se itera cada item o elemento del arreglo characters y lo renderiza en un li
+    Solo se puede acceder a la propiedad item dentro del scope del @for
+    
+    Se pueden agregar clases condicionalmente a los elementos HTLM colocandoles el atributo
+    [class.name-class] = "condition"
+    En este caso se coloca la clase text-success al primer elemento y text-danger al ultimo elemento
+    Se puede usar @if{}@else{} para mostrar u ocultar elementos HTML segun la condicion
+    En este caso no se muestran los personajes con healthPints < 100-->
+    @for (
+    item of characters();
+    track item.id;
+    let i = $index;
+    let first = $first;
+    let laast = $last;
+    ) {
+    @if ( item.healthPoints > 100 ) {
+    <li class="list-group-item" [class.list-group-item-success]="first" [class.list-group-item-danger]="laast">
+        <small class="text-primary"> {{ i + 1 }} - </small>
+        <span> Name: </span> <strong>{{ item.name }}</strong>
+        <span> - HeatlhPoints: </span> <strong class="text-success"> {{ item.healthPoints }} </strong>
+    </li>
+    }@else {
+    <small>Este personaje {{ item.name }} tiene menos de 100 puntos de vida {{ item.healthPoints }} <strong>NO SE
+            MUESTRA</strong></small>
+    }
+    }
+</ul>

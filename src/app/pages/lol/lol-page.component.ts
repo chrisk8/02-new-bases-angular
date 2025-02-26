@@ -14,18 +14,23 @@ export class LolPageComponent {
   characters = signal<Champion[]>([                //Las señales son un generico que puede recibir cualquier tipo de dato, en este caso un arreglo de Champion
     {
       id: 1,
-      name: 'Vi',
-      heathPoints: 1600
+      name: 'Vayne',
+      heathPoints: 985
     },
     {
       id: 2,
-      name: 'Powder',
-      heathPoints: 85
+      name: 'Caitlyn',
+      heathPoints: 900
     },
     {
       id: 3,
-      name: 'Caitlyn',
-      heathPoints: 985
+      name: 'Kaisa',
+      heathPoints: 1000
+    },
+    {
+      id: 3,
+      name: 'Teemo',
+      heathPoints: 600
     },
   ])
 

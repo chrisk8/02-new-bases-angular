@@ -1,0 +1,20 @@
+<h1> League of Legends Arcane Page</h1>
+<hr>
+<section class="row">
+    <div class="col-6">
+        <!-- Al ser este un componente indeendiente, se pueden acceder a sus eventos, en este caso este componente tiene un evento
+        newCharacter que es la funcion output<Character>() que se encuentra en el componente character-add.component.ts 
+        con el $event se recibe el apersonaje del componente HIJO y le pasa la informacion al PADRE
+        
+        Cuando este compoenente emita el evento newCharacter del HIJO, se ejecuta la funcion addCharacter del PADRE y recibira
+        el evento
+        -->
+        <lol-character-add (newCharacter)="addCharacter( $event )" ></lol-character-add>
+    </div>
+    <div class="col-6">
+        <!-- Para pasar los valores del componente padre al hijo lol-character-list, se debe tener un input.required() en el componente
+        hijo que recibira la informacion, en la etiqueta del componente hijo se pasa la informacion a traves del input
+        [inputRequired] = "fatherSignal()" -->
+        <lol-character-list [characters]="characters()" characterList="Listado de personajes" ></lol-character-list>
+    </div>
+</section>

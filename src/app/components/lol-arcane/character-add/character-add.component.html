@@ -1,0 +1,28 @@
+<h3>Agregar personaje:  </h3>
+<!-- Para acceder a los valores de las propiedades y asignarlas como propiedad a un elemento html como [value]="signalName()"
+En este caso los inputs reciben las siguientes propiedades
+    [value] = "name()" - le asigna el valor de la propiedad name al atributo value de la etiqueta html 
+    (change)="functionName" - Evento change del input type que dispara un evento cuando ya no se esta escribiendo en la caja de texto
+                  se accede al atributo name del input con la referencia local a linput #inName para actualizar su valor
+                  al que se coloque en la caja de texto. En este caso, al poner un nombre en la caja y seleccionar otro elemento
+                  se actualiza el valor de la propiedad name()
+    (input)="functionName()" - Para actualizar el valor en el momento en el que se esta escribiendo-->
+<input 
+type="text" 
+class="form-control" 
+placeholder="Name" 
+#inName  
+[value]="name()" 
+(input)="name.set(inName.value)"
+>
+
+<input 
+type="number" 
+class="form-control mt-2" 
+placeholder="Health Points" 
+#inHealth 
+[value]="healthPoints()" 
+(input)="healthPoints.set(+inHealth.value)"
+>
+
+<button (click)="addCharacter()" class="mt-3 btn btn-primary">Agregar </button>
