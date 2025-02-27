@@ -9,12 +9,12 @@
         Cuando este compoenente emita el evento newCharacter del HIJO, se ejecuta la funcion addCharacter del PADRE y recibira
         el evento
         -->
-        <lol-character-add (newCharacter)="addCharacter( $event )" ></lol-character-add>
+        <lol-character-add (newCharacter)=" lolArcaneService.addCharacter( $event )" ></lol-character-add>
     </div>
     <div class="col-6">
         <!-- Para pasar los valores del componente padre al hijo lol-character-list, se debe tener un input.required() en el componente
         hijo que recibira la informacion, en la etiqueta del componente hijo se pasa la informacion a traves del input
         [inputRequired] = "fatherSignal()" -->
-        <lol-character-list [characters]="characters()" characterList="Listado de personajes" ></lol-character-list>
+        <lol-character-list [characters]="lolArcaneService.characters()" characterList="Listado de personajes" ></lol-character-list>
     </div>
 </section>

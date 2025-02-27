@@ -6,7 +6,7 @@
 import { Routes } from '@angular/router';
 import { CounterPageComponent } from './pages/counter/counter-page.component';
 import { HomePageComponent } from './pages/home/home-page.component';
-import { ChampPageComponent } from './pages/champs/champ-page.component.ts/champ-page.component';
+import { ChampPageComponent } from './pages/champs/champ-page.component';
 import { LolPageComponent } from './pages/lol/lol-page.component';
 import { LolArcanePageComponent } from './pages/lol-arcane/lol-arcane-page.component';
 
